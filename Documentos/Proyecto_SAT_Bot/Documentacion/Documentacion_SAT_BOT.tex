@@ -1,0 +1,414 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\usepackage[table]{xcolor}
+\usepackage[
+    left=2.54cm,
+    right=2.54cm,
+    top=2.54cm,
+    bottom=2.54cm
+]{geometry}
+
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{soul}
+
+\usepackage{listings}
+\usepackage{upquote}
+
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    inputencoding=utf8,
+    extendedchars=true,
+    breaklines=true,
+    breakatwhitespace=false,
+    showstringspaces=false,
+    keepspaces=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    tabsize=4
+}
+\usepackage{tikz}
+
+\usetikzlibrary{
+    arrows.meta,
+    positioning,
+    automata
+}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!50!black
+]{hyperref}
+
+%================================================
+% CAJA DE EJERCICIOS
+%================================================
+\newtcbtheorem[number within=section]
+{ejercicio}{Ejercicio}{
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=5pt,
+    colframe=gray!30!black,
+    colback=gray!5!white,
+    coltitle=white,
+    fonttitle=\bfseries,
+    separator sign={.\ },
+    before skip=10pt,
+    after skip=10pt
+}{ej}
+
+%================================================
+% CAJA DE TEOREMAS
+%================================================
+\newtcbtheorem[number within=section]
+{mytheo}{Teorema}{
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=5pt,
+    colframe=blue!40!black,
+    colback=blue!5!white,
+    coltitle=white,
+    fonttitle=\bfseries,
+    separator sign={.\ },
+    before skip=10pt,
+    after skip=10pt
+}{th}
+
+%================================================
+% CAJA DE ALERTA
+%================================================
+\newtcolorbox{alerta}[1]{
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=5pt,
+    colframe=red!40!black,
+    colback=red!5!white,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={#1},
+    before skip=10pt,
+    after skip=10pt
+}
+
+%================================================
+% CAJA DE NOTAS
+%================================================
+\newtcolorbox{nota}[1]{
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=5pt,
+    colframe=orange!40!black,
+    colback=yellow!5!white,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={#1},
+    before skip=10pt,
+    after skip=10pt
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+
+    %========================================
+    % UNIVERSIDAD
+    %========================================
+    {\huge\textbf{Universidad Nacional Autónoma de México}}
+
+    \vspace{0.3cm}
+    \rule{\linewidth}{2mm}
+
+    \vspace{0.3cm}
+    {\large\textbf{Facultad de Estudios Superiores Acatlán}}
+
+    \vspace{0.8cm}
+
+    %========================================
+    % LOGOTIPOS
+    %========================================
+    \noindent
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \IfFileExists{../../../Archivos/Imagenes_Logos/acatlan.png}{
+            \includegraphics[
+                width=5cm,
+                height=4cm,
+                keepaspectratio
+            ]{../../../Archivos/Imagenes_Logos/acatlan.png}
+        }{
+            \textit{Logotipo FES Acatlán}
+        }
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \IfFileExists{../../../Archivos/Imagenes_Logos/SAT-BOT.jpg}{
+            \includegraphics[
+                width=5cm,
+                height=4cm,
+                keepaspectratio
+            ]{../../../Archivos/Imagenes_Logos/SAT-BOT.jpg}
+        }{
+            \textit{Logotipo BOT}
+        }
+    \end{minipage}
+
+    \vspace{0.8cm}
+
+    %========================================
+    % CARRERA Y TÍTULO
+    %========================================
+ 
+
+    \vspace{0.8cm}
+    {\huge\textbf{Temas Selectos de Computación I}}
+
+    \vspace{0.4cm}
+    \rule{\linewidth}{1mm}
+
+    \vspace{0.4cm}
+
+    %========================================
+    % PROYECTOS
+    %========================================
+    {\Large\textbf{Proyecto}}
+
+    \vspace{0.3cm}
+    {\large\textit{Análisis de Impacto y Planeación Arquitectónica: SAT-Bot Ciudadano 2026}}
+
+    \vspace{6cm}
+
+    %========================================
+    % INTEGRANTES
+    %========================================
+    \rule{\linewidth}{0.5mm}
+
+    \vspace{0.3cm}
+    {\large\textbf{Integrantes}}
+
+    \vspace{0.3cm}
+    {\large Vazquez Perez Xochitl}
+
+    \vspace{0.15cm}
+    {\large Estrada Romero Meliza Edith}
+
+    \vspace{0.15cm}
+    {\large López Ramírez Ricardo}
+
+
+    \vspace{0.5cm}
+    \rule{\linewidth}{0.5mm}
+
+    \vspace{0.5cm}
+
+    %========================================
+    % FECHA
+    %========================================
+    {\small Actualización: \today}
+
+\end{titlepage}
+
+
+%================================================
+% ÍNDICE
+%================================================
+\pagenumbering{roman}
+
+\tableofcontents
+
+\clearpage
+
+%================================================
+% CONTENIDO
+%================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Tipo de datos  a utilizar.}
+
+El SAT-Bot procesará un flujo híbrido de datos para garantizar una respuesta
+precisa y auditable:
+
+\begin{itemize}
+    \item Datos No Estructurados (Documentales): 
+    Archivos PDF correspondientes a la Constancia de Situación Fiscal que 
+    el ciudadano sube temporalmente a la plataforma.
+    \item Datos Estructurados (Extraídos): 
+    Entidades clave obtenidas mediante IA a partir de los PDFs, 
+    tales como RFC, Razón Social, Régimen Fiscal, Código Postal y 
+    Obligaciones Fiscales. Se manejarán en formato JSON.
+    \item Datos Conversacionales (Procesamiento de Lenguaje Natural): 
+    Historial de interacción entre el ciudadano y el modelo de lenguaje 
+    (Vertex AI), incluyendo preguntas abiertas sobre dudas tributarias.
+    \item Datos de Telemetría y Analítica: 
+    Metadatos de uso del sistema 
+    (latencia en milisegundos, códigos de estado HTTP, 200/500), 
+    timestamps de las consultas y volumetría de uso para alimentar 
+    los tableros de impacto.
+\end{itemize}
+
+\newpage    
+
+\section{Elección de Base de Datos y Comparativa}
+
+Se requiere una persistencia dual: 
+una para el estado rápido de las conversaciones y otra para el análisis masivo de métricas.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Elección de Base de Datos y Comparativa}
+    \label{tab:comparativa-bases-datos}
+
+    \small
+    \renewcommand{\arraystretch}{1.5}
+
+    \begin{tabularx}{\textwidth}{
+        p{2.5cm}
+        p{3.0cm}
+        Y
+        Y
+        Y
+    }
+
+        \toprule
+
+        \rowcolor{blue!15}
+        \textbf{Tipo de Base de Datos} &
+        \textbf{Servicio GCP} &
+        \textbf{Casos de Uso Ideales} &
+        \textbf{Desventajas para este proyecto} &
+        \textbf{Veredicto} \\
+
+        \midrule
+
+        \textbf{Relacional (SQL)} &
+        Cloud SQL (PostgreSQL/MySQL) &
+        Transacciones financieras, alta integridad relacional (ACID), cuentas de usuario complejas. &
+        Requiere aprovisionar capacidad fija (instancias), lo que consume créditos constantemente aunque no haya tráfico. &
+        \textbf{\textcolor{red}{Descartada}} temporalmente; sobrecualificada para guardar solo chats y métricas simples. \\
+
+        \midrule
+
+        \textbf{NoSQL (Documentos)} &
+        Firestore &
+        Guardar el estado de la sesión del chat, perfiles temporales, lecturas/escrituras de muy baja latencia y esquema flexible (JSON). &
+        No es ideal para hacer consultas analíticas complejas o agregaciones masivas de datos históricos. &
+        \textbf{\textcolor{green!50!black}{Seleccionada}} para la capa de la aplicación (Frontend/Backend), para guardar el historial del chat. \\
+
+        \midrule
+
+        \textbf{Data Warehouse} &
+        BigQuery &
+        Análisis masivo de datos, dashboards, consultas SQL sobre terabytes de información e integración nativa con Looker Studio. &
+        No está diseñada para inserciones transaccionales de un solo registro en tiempo real para aplicaciones web. &
+        \textbf{\textcolor{green!50!black}{Seleccionada}} para la capa analítica. Almacenará los logs de uso para el dashboard de impacto. \\
+
+        \bottomrule
+
+    \end{tabularx}
+\end{table}
+
+\vspace{2mm}
+
+Utilizaremos Firestore como base de datos operativa para que Melissa conecte el contexto del chatbot, y 
+BigQuery como motor analítico Serverless para que Xóchitl estructure los KPIs del proyecto sin necesidad de administrar servidores de bases de datos.
+
+\newpage
+
+\section{Análisis de Mercado y Oportunidad}
+
+\vspace{2mm}
+
+Soluciones actuales en el mercado
+
+
+\vspace{2mm}
+
+\begin{itemize}
+    \item Orión (Chatbot Oficial del SAT): Es un bot basado en árboles de decisión rígidos (reglas).
+    Carece de comprensión profunda de lenguaje natural, frecuentemente no resuelve 
+    dudas específicas y obliga al usuario a navegar por menús predefinidos. 
+    No permite subir documentos para su análisis.
+    \item Heru / Taxfyle (Plataformas Contables Privadas): 
+    Aplicaciones robustas (B2C) que conectan al usuario con contadores humanos o 
+    automatizan declaraciones enteras. Son soluciones de pago por evento o suscripción.
+    \item Bots de Despachos Contables (WhatsApp/Web): 
+    Principalmente utilizados como embudos de ventas para captar clientes; 
+    no ofrecen resolución técnica gratuita ni OCR automatizado de constancias.
+\end{itemize}
+
+
+\vspace{2mm}
+
+Diferenciador y Oportunidad (Nuestra Propuesta de Valor):
+SAT-Bot Ciudadano 2026 se posiciona como una herramienta de primer nivel de atención 
+(Triage Fiscal) gratuita, de código abierto e impulsada por IA Generativa. 
+A diferencia de Orión, nuestro bot permite la carga directa de documentos oficiales (PDF),
+ utilizando Visión Artificial (Document AI) para "leer" la situación del ciudadano y 
+ Vertex AI para traducir la jerga fiscal del SAT a un lenguaje empático, claro y 
+ accesible para cualquier persona, resolviendo dudas inmediatas sin costo alguno.
+
+\newpage
+
+\section{Planteamiento de la Infraestructura en la Nube (Arquitectura GCP)}
+
+\vspace{2mm}
+
+La arquitectura ha sido diseñada bajo el paradigma Serverless (Sin Servidor),
+lo cual garantiza que la aplicación pueda escalar a miles de usuarios si es necesario, pero escale a cero (costo cero) 
+cuando no se utiliza, optimizando los créditos educativos.
+
+\begin{itemize}
+    \item Cómputo (Cloud Run):
+    Elegido sobre Compute Engine (Máquinas Virtuales) porque nos permite desplegar 
+    nuestro backend en Python/FastAPI mediante contenedores 
+    Docker sin tener que parchar sistemas operativos ni gestionar redes. 
+    Se cobra solo por los milisegundos de procesamiento.
+    \item Almacenamiento (Cloud Storage): Actúa como una zona de aterrizaje (landing zone) temporal y segura.
+    Elegido por su bajo costo y capacidad de disparar eventos. 
+    Los PDFs de los ciudadanos se suben aquí e inmediatamente se borran tras su 
+    análisis por seguridad de los datos personales.
+    \item Inteligencia Artificial (Document AI, Vertex AI):
+    Document AI (Form Parser): Elegido por ser un modelo preentrenado 
+    para extraer llaves/valores de documentos formales, 
+    superando ampliamente a un OCR tradicional (como Tesseract).
+
+    \vspace{2mm}
+
+    Vertex AI:Provee el cerebro conversacional LLM. 
+    Elegido sobre la API pública de OpenAI por mantenerse dentro del 
+    ecosistema GCP, garantizando que los datos fiscales de los ciudadanos
+     no se utilicen para entrenar modelos públicos (privacidad empresarial).
+    \item CI/CD (Cloud Build , Artifact Registry): 
+    Automatizan el empaquetado del código en imágenes Docker seguras. 
+    Elegidos por su integración nativa y fluida con Cloud Run.
+\end{itemize}
+
+\end{document}
+
